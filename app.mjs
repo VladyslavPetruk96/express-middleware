@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
 
@@ -8,6 +9,8 @@ app.use(morgan('tiny'));
 app.use(express.json());
 // converts form data to JS Object in POST, PUT, PATCH request
 app.use(express.urlencoded({ extended: true }));
+// enable all CORS requests
+app.use(cors());
 
 app.use((req, res) => {
 	console.log(req.body);
